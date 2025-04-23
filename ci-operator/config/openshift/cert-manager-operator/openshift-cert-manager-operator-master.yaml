@@ -37,11 +37,11 @@ operator:
   substitutions:
   - pullspec: openshift.io/cert-manager-operator:latest
     with: pipeline:cert-manager-operator
-  - pullspec: quay.io/jetstack/cert-manager-controller
+  - pullspec: quay.io/jetstack/cert-manager-controller:latest
     with: pipeline:cert-manager
-  - pullspec: quay.io/jetstack/cert-manager-webhook
+  - pullspec: quay.io/jetstack/cert-manager-webhook:latest
     with: pipeline:cert-manager
-  - pullspec: quay.io/jetstack/cert-manager-cainjector
+  - pullspec: quay.io/jetstack/cert-manager-cainjector:latest
     with: pipeline:cert-manager
 releases:
   initial:
@@ -88,7 +88,7 @@ tests:
     - ref: fips-check-image-scan
 - as: e2e-operator
   steps:
-    cluster_profile: aws-2
+    cluster_profile: aws
     dependencies:
       OO_BUNDLE: cert-manager-operator-bundle
     env:

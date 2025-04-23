@@ -154,7 +154,7 @@ tests:
         and configmaps into the build pod
     workflow: openshift-e2e-ibmcloud-heterogeneous
 - as: ocp-e2e-powervs-ovn-multi-ppc64le
-  cron: 30 23 2,5,8,11,14,17,20,23,26,29 * *
+  cron: 30 23 * * MON
   steps:
     cluster_profile: powervs-multi-1
     dependencies:
@@ -185,7 +185,7 @@ tests:
 - as: ocp-e2e-aws-ovn-heterogeneous-upgrade
   interval: 72h
   steps:
-    cluster_profile: aws-2
+    cluster_profile: aws
     dependencies:
       OPENSHIFT_INSTALL_RELEASE_IMAGE_OVERRIDE: release:multi-initial
       OPENSHIFT_UPGRADE_RELEASE_IMAGE_OVERRIDE: release:multi-latest
@@ -193,7 +193,7 @@ tests:
 - as: ocp-e2e-aws-ovn-heterogeneous
   cron: 08 11 * * 5
   steps:
-    cluster_profile: aws-2
+    cluster_profile: aws
     dependencies:
       OPENSHIFT_INSTALL_RELEASE_IMAGE_OVERRIDE: release:multi-latest
     env:
@@ -226,7 +226,7 @@ tests:
 - as: ocp-e2e-upgrade-aws-ovn-arm64
   interval: 72h
   steps:
-    cluster_profile: aws-2
+    cluster_profile: aws
     dependencies:
       OPENSHIFT_INSTALL_RELEASE_IMAGE_OVERRIDE: release:arm64-initial
       OPENSHIFT_UPGRADE_RELEASE_IMAGE_OVERRIDE: release:arm64-latest
@@ -265,7 +265,7 @@ tests:
 - as: ocp-e2e-ovn-serial-aws-arm64
   interval: 72h
   steps:
-    cluster_profile: aws-2
+    cluster_profile: aws
     dependencies:
       OPENSHIFT_INSTALL_RELEASE_IMAGE_OVERRIDE: release:arm64-latest
     env:
@@ -283,7 +283,7 @@ tests:
 - as: ocp-e2e-aws-upi-ovn-arm64
   interval: 72h
   steps:
-    cluster_profile: aws-2
+    cluster_profile: aws-3
     dependencies:
       OPENSHIFT_INSTALL_RELEASE_IMAGE_OVERRIDE: release:arm64-latest
     env:
@@ -316,7 +316,7 @@ tests:
 - as: ocp-e2e-aws-ovn-arm64-techpreview-serial
   interval: 72h
   steps:
-    cluster_profile: aws-2
+    cluster_profile: aws-3
     dependencies:
       OPENSHIFT_INSTALL_RELEASE_IMAGE_OVERRIDE: release:arm64-latest
     env:
@@ -325,7 +325,7 @@ tests:
       OCP_ARCH: arm64
     workflow: openshift-e2e-aws-serial
 - as: ocp-e2e-ibmcloud-ovn-multi-ppc64le
-  cron: 0 23 2,5,8,11,14,17,20,23,26,29 * *
+  cron: 0 23 * * MON
   steps:
     cluster_profile: ibmcloud-multi-ppc64le
     dependencies:
