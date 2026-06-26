@@ -117,7 +117,7 @@ tests:
     workflow: firewatch-ipi-aws
   timeout: 8h0m0s
 zz_generated_metadata:
-  branch: v1.20
+  branch: v1.21
   org: redhat-developer
   repo: gitops-operator
   variant: gitops-ocp-4.22-lpGA-lp-ocp-compat
